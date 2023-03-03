@@ -1,15 +1,19 @@
 {
-  "name": "ohhwebdev",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^2.0.17"
-  }
+	"name": "ohhwebdev",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/svelte": "^2.0.2",
+		"@vanilla-extract/css": "^1.9.5",
+		"astro": "^2.0.17",
+		"astro-vanilla-extract": "^2.0.0",
+		"svelte": "^3.54.0"
+	}
 }
