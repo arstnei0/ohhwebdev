@@ -1,12 +1,13 @@
 import { style } from "@vanilla-extract/css"
 
-export const container = style({
+export const course = style({
 	position: "fixed",
 	top: 0,
 	left: 0,
-	width: "100vh",
+
+	width: "100vw",
 	height: "100vh",
-	overflowY: "hidden",
+
 	display: "flex",
 	alignItems: "center",
 	justifyContent: "center",

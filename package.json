@@ -10,10 +10,12 @@
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@astrojs/solid-js": "^2.0.2",
 		"@astrojs/svelte": "^2.0.2",
 		"@vanilla-extract/css": "^1.9.5",
 		"astro": "^2.0.17",
 		"astro-vanilla-extract": "^2.0.0",
+		"solid-js": "^1.4.3",
 		"svelte": "^3.54.0"
 	}
 }

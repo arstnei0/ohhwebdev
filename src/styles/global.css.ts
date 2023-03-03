@@ -1,17 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css"
-
-export const color = {
-	background: "#212121",
-	font: {
-		primary: "#EEEEEE",
-	},
-} as const
-
-export const font = {
-	sans: `"Poppins", sans-serif`,
-	serif: `"Noto Serif", serif`,
-	mono: `"JetBrains Mono", monospace`,
-} as const
+import { color } from "./theme/color.css"
+import { font } from "./theme/font.css"
 
 globalStyle("body", {
 	backgroundColor: color.background,
