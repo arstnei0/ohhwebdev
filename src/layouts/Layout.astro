@@ -1,5 +1,6 @@
 ---
 import "~/styles/global.css"
+import "~/styles/typo.css"
 
 export interface Props {
 	title: string
@@ -17,7 +18,7 @@ const { title } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<style>
-			@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Noto+Serif:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap");
+			@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Noto+Serif:wght@400;700&family=Poppins:ital,wght@0,400;1,300;1,400;1,500;1,700&display=swap");
 		</style>
 	</head>
 	<body>

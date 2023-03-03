@@ -1,9 +1,8 @@
 ---
-import Container from "~/components/course/Container.svelte"
 import Layout from "../layouts/Layout.astro"
 import { Course } from "~/components/Course"
 ---
 
 <Layout title="">
-	<Course client:idle />
+	<Course client:only="solid-js" />
 </Layout>
