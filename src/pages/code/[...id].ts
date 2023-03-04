@@ -19,7 +19,12 @@ export const get: APIRoute = async ({ params }) => {
 	const content = (
 		await readFile(
 			path.join(
-				path.join(import.meta.url.slice(5), "../../../code"),
+				import.meta.env.DEV
+					? path.join(import.meta.url.slice(5), "../../../code")
+					: path.join(
+							import.meta.url.slice(5),
+							"../../../../src/code"
+					  ),
 				`${params.id as string}`
 			)
 		)
