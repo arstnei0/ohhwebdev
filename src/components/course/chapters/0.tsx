@@ -8,6 +8,7 @@ import Checkbox from "~/components/ui/Checkbox"
 import type { Page } from "../page"
 import Tip from "~/components/ui/Tip"
 import Code from "~/components/utils/Code"
+import More from "~/components/ui/More"
 
 export const chapter0 = {
 	n: 0,
@@ -216,6 +217,43 @@ export const chapter0 = {
 										Twitter
 									</a>{" "}
 									to get the latest updates about OhhWebDev.
+								</p>
+							</>
+						)
+					},
+				},
+			],
+		},
+		{
+			n: 3,
+			title: `Softwares to install`,
+			pages: [
+				{
+					n: 1,
+					content: () => {
+						return (
+							<>
+								<h1>Softwares to install</h1>
+								<p>
+									First you need to install a powerful code
+									editor{" "}
+									<a
+										href="https://code.visualstudio.com/"
+										target="_blank"
+									>
+										VS Code
+									</a>{" "}
+									(Visual Studio Code).{" "}
+									<More>
+										VS Code is also built with web
+										technologies, which means that it can
+										literally run in the browser (with some
+										features not available).
+									</More>
+									<br />
+									It has clear installation instructions on
+									its homepage, just follow it according to
+									your system setup.
 								</p>
 							</>
 						)

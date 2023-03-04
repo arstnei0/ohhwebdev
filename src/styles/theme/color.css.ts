@@ -8,5 +8,5 @@ export const color = {
 		primary: "#EEEEEE",
 		accent: "#A6E3E9",
 	},
-	// primary: "",
+	primary: "#609966",
 } as const

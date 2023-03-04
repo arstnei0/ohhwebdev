@@ -20,6 +20,7 @@ import {
 	progressWrapper,
 	theNameDoesNotMatterHelloHello,
 } from "./Progress.css"
+import { config } from "~/config"
 
 export default () => {
 	const [hoveringChapter, hoveringChapterEvents] = createHover(600)
@@ -30,7 +31,9 @@ export default () => {
 	return (
 		<div class={progressWrapper}>
 			<h1 class={progressText}>
-				<span class={ohhwebdevTitle}>ohhwebdev</span>
+				<a href={config.siteUrl}>
+					<span class={ohhwebdevTitle}>ohhwebdev</span>
+				</a>
 				<Show
 					when={zen()}
 					fallback={
@@ -66,7 +69,7 @@ export default () => {
 																theNameDoesNotMatterHelloHello
 															}
 														>
-															:{" "}
+															,{" "}
 														</span>
 														{chapter.name}
 													</p>
@@ -110,7 +113,7 @@ export default () => {
 																theNameDoesNotMatterHelloHello
 															}
 														>
-															:{" "}
+															,{" "}
 														</span>
 														{phase.title}
 													</p>
