@@ -12,4 +12,5 @@ globalStyle("body", {
 
 globalStyle("*", {
 	transition,
+	boxSizing: "border-box",
 })

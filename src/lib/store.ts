@@ -1,3 +1,4 @@
+import { createLocalStorage } from "@solid-primitives/storage"
 import { createEffect, createSignal } from "solid-js"
 
 export const storedSignal = <T>(key: string, initial: T) => {

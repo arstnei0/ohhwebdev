@@ -13,7 +13,7 @@ export const chapter0 = {
 	phases: [
 		{
 			n: 1,
-			title: "Excuse me?",
+			title: "Get ready",
 			pages: [
 				{
 					content: () => {
@@ -144,11 +144,13 @@ export const chapter0 = {
 								<p>
 									This web page is{" "}
 									<strong>fully interactive</strong>.<br />
-									Try to press `<strong>z</strong>` and see
+									Try to press{" "}
+									<strong>Control + Shift + Z</strong> and see
 									where we are now.
 								</p>
 								<p>
-									Pressing `<strong>z</strong>` means `
+									Pressing{" "}
+									<strong>Control + Shift + Z</strong> means `
 									<strong>Toggle Zen Mode</strong>`.
 								</p>
 							</>
@@ -161,7 +163,8 @@ export const chapter0 = {
 						return (
 							<>
 								<h1>
-									Try to press `<strong>p</strong>` now.
+									Try to press <strong>Control + K</strong>{" "}
+									now.
 								</h1>
 								<p></p>
 							</>

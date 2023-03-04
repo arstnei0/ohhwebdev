@@ -14,9 +14,11 @@ export const button = style({
 	transition,
 	":hover": {
 		backgroundColor: color.backgroundLighter,
+		transform: "scale(1.1)",
 	},
 	":active": {
 		backgroundColor: color.backgroundLightest,
+		transform: "scale(1.3)",
 	},
 	display: "flex",
 	alignItems: "center",

@@ -12,7 +12,7 @@ export const gradient = style({
 
 const g = {
 	"-webkit-text-fill-color": "transparent",
-	"background-clip": "text",
+	"-webkit-background-clip": "text",
 } as any
 
 export const ohh = style({

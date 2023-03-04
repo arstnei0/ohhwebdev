@@ -10,6 +10,7 @@ export const toastWrapper = style({
 	bottom: 0,
 	left: 0,
 	width: "100%",
+	zIndex: 1000,
 	display: "flex",
 	alignItems: "center",
 	justifyContent: "center",
@@ -36,6 +37,7 @@ export const toastClass = style({
 	animation: `.5s ${transitionFn} 0s ${fadeIn}`,
 	fontWeight: 600,
 	fontFamily: font.mono,
+	zIndex: 1000,
 	":hover": {
 		backgroundColor: `${color.backgroundLighter}`,
 		...scaleOnClick()[":active"],
