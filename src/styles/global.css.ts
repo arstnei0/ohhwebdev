@@ -7,7 +7,7 @@ globalStyle("body", {
 	backgroundColor: color.background,
 	color: color.font.primary,
 	fontFamily: font.sans,
-	overflowY: "hidden",
+	overflow: "hidden",
 })
 
 globalStyle("*", {

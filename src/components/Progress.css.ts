@@ -12,6 +12,7 @@ export const progressWrapper = style({
 	width: "100vw",
 	marginTop: "10px",
 	display: "flex",
+	zIndex: 400,
 	alignItems: "center",
 	justifyContent: "center",
 	textAlign: "center",
@@ -47,7 +48,7 @@ export const chapterClass = style({
 	cursor: "pointer",
 })
 globalStyle(`${chapterClass}.hovering`, {
-	transform: "scale(1.15)",
+	transform: "scale(1.1)",
 	opacity: 1,
 	backgroundColor: color.backgroundLighter,
 })
@@ -66,7 +67,9 @@ export const chapterItem = style({
 	borderRadius,
 	fontSize: "1em",
 	cursor: "pointer",
+	opacity: 0.5,
 	backgroundColor: color.backgroundLighter,
+	transform: "scale(1)",
 	":hover": {
 		backgroundColor: color.backgroundLighterer,
 		transform: "scale(1.1)",
@@ -75,6 +78,10 @@ export const chapterItem = style({
 
 globalStyle(`${chaptersClass}:has(${chapterItem}:hover)`, {
 	backgroundColor: color.backgroundLight,
+})
+
+globalStyle(`${chaptersClass}:hover ${chapterItem}`, {
+	opacity: 1,
 })
 
 globalStyle(`${chapterItem}.now`, {

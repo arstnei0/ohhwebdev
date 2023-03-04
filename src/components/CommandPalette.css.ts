@@ -76,7 +76,7 @@ export const commandPaletteInput = style({
 	},
 	":hover": {
 		backgroundColor: color.backgroundLighterer,
-		transform: "scale(1.1)",
+		transform: "scale(1.05)",
 	},
 })
 
@@ -92,7 +92,7 @@ export const commandClass = style({
 
 	":hover": {
 		backgroundColor: color.backgroundLighterer,
-		transform: "scale(1.2)",
+		transform: "scale(1.1)",
 	},
 })
 
@@ -109,4 +109,26 @@ globalStyle(`${commandClass}:hover ${commandClassIcon}`, {
 export const commandEntering = style({
 	filter: "brightness(1.5)",
 	transform: "scale(1.05)",
+})
+
+export const shiningRect1 = style({
+	position: "absolute",
+	left: "0%",
+	transform: "skewX(-40deg)",
+	width: "20%",
+	height: "100%",
+	backgroundColor: `${color.backgroundLighterer}44`,
+	transition: `all .6s ${transitionFn}`,
+	animation: `.6s ${transitionFn} 0s ${fadeIn}`,
+})
+
+export const shiningRect2 = style({
+	position: "absolute",
+	left: "70%",
+	transform: "skewX(-40deg)",
+	width: "40%",
+	height: "100%",
+	backgroundColor: `${color.backgroundLighterer}22`,
+	transition: `all .6s ${transitionFn}`,
+	animation: `.6s ${transitionFn} 0s ${fadeIn}`,
 })

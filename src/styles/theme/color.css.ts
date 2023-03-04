@@ -6,5 +6,7 @@ export const color = {
 	backgroundLightest: "#696969",
 	font: {
 		primary: "#EEEEEE",
+		accent: "#A6E3E9",
 	},
+	// primary: "",
 } as const

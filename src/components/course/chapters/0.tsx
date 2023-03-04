@@ -6,6 +6,8 @@ import { bgImg } from "./0.css"
 import { createEffect, createSignal } from "solid-js"
 import Checkbox from "~/components/ui/Checkbox"
 import type { Page } from "../page"
+import Tip from "~/components/ui/Tip"
+import Code from "~/components/utils/Code"
 
 export const chapter0 = {
 	n: 0,
@@ -153,6 +155,16 @@ export const chapter0 = {
 									<strong>Control + Shift + Z</strong> means `
 									<strong>Toggle Zen Mode</strong>`.
 								</p>
+								<p>
+									At the top of this page, when you are not in
+									Zen Mode, you'll see your progress. You can
+									also navigate between phases and chapters
+									there.
+								</p>
+								<p>
+									Use your arrow keys (Left or Right) to
+									navigate between pages quickly.
+								</p>
 							</>
 						)
 					},
@@ -166,7 +178,45 @@ export const chapter0 = {
 									Try to press <strong>Control + K</strong>{" "}
 									now.
 								</h1>
-								<p></p>
+								<p>
+									That is the CP (Command Palette), the most
+									powerful tool. You can do almost everything
+									in the command palette.
+								</p>
+								<Tip>
+									Use the arrow keys (Up or Down) to select
+									commands and press enter to execute them.
+									Press Escape to exit the CP.
+								</Tip>
+							</>
+						)
+					},
+				},
+				{
+					n: 3,
+					content: () => {
+						return (
+							<>
+								<h1>"How did you build this course?"</h1>
+								<p>
+									This course is fully open source on{" "}
+									<a
+										href="https://github.com/zihan-ch/ohhwebdev"
+										target="_blank"
+									>
+										Github
+									</a>
+									.
+									<br />
+									You can follow me on{" "}
+									<a
+										href="https://twitter.com/zihanch"
+										target="_blank"
+									>
+										Twitter
+									</a>{" "}
+									to get the latest updates about OhhWebDev.
+								</p>
 							</>
 						)
 					},

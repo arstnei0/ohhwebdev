@@ -11,19 +11,23 @@ import {
 	commandPalette,
 	commandPaletteInput,
 	commandPaletteWrapper,
+	shiningRect1,
+	shiningRect2,
 } from "./CommandPalette.css"
 import { toast } from "~/lib/toast"
+import { createHover } from "~/lib/utils/hover"
 
 export default (props: { show: boolean; onHide: () => void }) => {
-	const onHide = () => {
-		props.onHide()
-		currentFocus(0)
-	}
 	let inputEl = null as unknown as HTMLInputElement
 	const currentFocus = atom(0)
 	const searchingCommand = atom("")
-	const hovering = atom(false)
+	const [hovering, hoveringEvents] = createHover()
 	const commands = atom(theCommands)
+	const onHide = () => {
+		props.onHide()
+		currentFocus(0)
+		hovering(false)
+	}
 	createEffect(() => {
 		commands(
 			searchingCommand() !== ""
@@ -63,13 +67,14 @@ export default (props: { show: boolean; onHide: () => void }) => {
 			<Portal mount={document.body}>
 				<Show when={props.show}>
 					<div class={commandPaletteWrapper}>
+						<div class={shiningRect1}></div>
+						<div class={shiningRect2}></div>
 						<div class={commandPalette}>
 							<div style="display: flex; align-items: center; justify-content: center;">
 								<div
-									onMouseEnter={() => hovering(true)}
-									onMouseLeave={() => hovering(false)}
 									class={commandIcon}
 									onClick={() => onHide()}
+									{...hoveringEvents}
 								>
 									<Show
 										when={hovering()}

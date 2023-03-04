@@ -94,8 +94,8 @@ export default () => {
 										<For each={chapter().phases}>
 											{(phase, i) => (
 												<div
-													class={chapterItem}
 													classList={{
+														[chapterItem]: true,
 														now: i() === phaseId(),
 													}}
 													onClick={() => {

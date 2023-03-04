@@ -25,10 +25,10 @@ export const course = style({
 })
 
 export const pageClass = style({
-	marginRight: "20%",
-	marginBottom: "20%",
-	maxWidth: "60%",
-	position: "fixed",
+	padding: "2em",
+	width: "80%",
+	height: "85vh",
+	overflowY: "scroll",
 })
 
 export const fadeOutClass = style({
@@ -40,7 +40,7 @@ export const fadeInClass = style({
 
 const scaleIn = keyframes({
 	"0%": {
-		transform: "scale(5)",
+		transform: "scale(3)",
 		marginRight: "100px",
 	},
 	"100%": {
@@ -67,7 +67,7 @@ const movePage = {
 	display: "flex",
 	justifyContent: "center",
 	alignItems: "center",
-	animation: `.5s ${transitionFn} 0s ${scaleIn}`,
+	animation: `.7s ${transitionFn} 0s ${scaleIn}`,
 } as const
 
 export const previousPage = style({
