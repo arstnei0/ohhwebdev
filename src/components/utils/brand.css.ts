@@ -1,7 +1,7 @@
 import { globalStyle, keyframes, style } from "@vanilla-extract/css"
 import { color } from "~/styles/theme/color.css"
 import { font } from "~/styles/theme/font.css"
-import { transitionFn } from "~/styles/theme/transition"
+import { transitionFn } from "~/styles/theme/transition.css"
 
 export const gradient = style({
 	display: "inline-block",

@@ -1,7 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 import { color } from "~/styles/theme/color.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
-import { transitionFn } from "~/styles/theme/transition"
+import { transitionFn } from "~/styles/theme/transition.css"
 
 export const box = style({
 	display: "flex",

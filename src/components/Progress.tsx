@@ -45,17 +45,22 @@ export default () => {
 								}}
 								{...hoveringChapterEvents}
 							>
-								<span class={progressTextLight}>.chapter(</span>
-								{chapter().n}
-								<span class={progressTextLight}>, "</span>
-								{chapter().name}
-								<span class={progressTextLight}>")</span>
+								<span tabIndex={0}>
+									<span class={progressTextLight}>
+										.chapter(
+									</span>
+									{chapter().n}
+									<span class={progressTextLight}>, "</span>
+									{chapter().name}
+									<span class={progressTextLight}>")</span>
+								</span>
 
 								<Show when={hoveringChapter()}>
 									<div class={chaptersClass}>
 										<For each={chapters}>
 											{(chapter, i) => (
 												<div
+													tabIndex={0}
 													class={chapterItem}
 													classList={{
 														now:
@@ -86,11 +91,15 @@ export default () => {
 								}}
 								{...hoveringPhaseEvents}
 							>
-								<span class={progressTextLight}>.phase(</span>
-								{phase().n}
-								<span class={progressTextLight}>, "</span>
-								{phase().title}
-								<span class={progressTextLight}>")</span>
+								<span tabIndex={0}>
+									<span class={progressTextLight}>
+										.phase(
+									</span>
+									{phase().n}
+									<span class={progressTextLight}>, "</span>
+									{phase().title}
+									<span class={progressTextLight}>")</span>
+								</span>
 
 								<Show when={hoveringPhase()}>
 									<div class={chaptersClass}>
@@ -101,6 +110,7 @@ export default () => {
 														[chapterItem]: true,
 														now: i() === phaseId(),
 													}}
+													tabIndex={0}
 													onClick={() => {
 														goToPhase(i())
 														hoveringPhase(false)

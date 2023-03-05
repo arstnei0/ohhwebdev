@@ -1,5 +1,5 @@
 import { batch, createEffect, createMemo, createSignal } from "solid-js"
-import { storedSignal } from "~/lib/store"
+import { createStoredSignal } from "~/lib/store"
 import { chapters } from "../components/course/chapter"
 import atom from "solid-use/atom"
 import { toast } from "./toast"
@@ -10,7 +10,7 @@ export type Progress = {
 	page: number
 }
 
-export const [progress, setProgress] = storedSignal("progress", {
+export const [progress, setProgress] = createStoredSignal("progress", {
 	chapter: 0,
 	phase: 0,
 	page: 0,
@@ -82,7 +82,7 @@ createEffect(() => {
 	})
 })
 
-export const [zen, setZen] = storedSignal("zen", true)
+export const [zen, setZen] = createStoredSignal("zen", true)
 export const toggleZen = () => {
 	setZen(($) => !$)
 	if (zen()) {

@@ -3,7 +3,7 @@ import { color } from "~/styles/theme/color.css"
 import { scaleOnClick } from "~/styles/theme/effects.css"
 import { font } from "~/styles/theme/font.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
-import { transitionFn } from "~/styles/theme/transition"
+import { transitionFn } from "~/styles/theme/transition.css"
 
 export const toastWrapper = style({
 	position: "fixed",

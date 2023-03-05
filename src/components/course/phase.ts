@@ -1,3 +1,4 @@
+import { Laziable } from "~/lib/utils/lazy"
 import type { Page } from "./page"
 
 export type Phase = {

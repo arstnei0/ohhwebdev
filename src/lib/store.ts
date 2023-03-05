@@ -1,7 +1,7 @@
 import { createLocalStorage } from "@solid-primitives/storage"
 import { createEffect, createSignal } from "solid-js"
 
-export const storedSignal = <T>(key: string, initial: T) => {
+export const createStoredSignal = <T>(key: string, initial: T) => {
 	if (!localStorage.getItem(key)) {
 		localStorage.setItem(key, JSON.stringify(initial))
 	}

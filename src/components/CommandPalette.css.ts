@@ -2,7 +2,7 @@ import { globalStyle, keyframes, style } from "@vanilla-extract/css"
 import { color } from "~/styles/theme/color.css"
 import { font } from "~/styles/theme/font.css"
 import { borderRadius, borderRadiusLarge } from "~/styles/theme/sizes.css"
-import { transitionFn } from "~/styles/theme/transition"
+import { transitionFn } from "~/styles/theme/transition.css"
 import { fadeIn, scaleIn } from "~/styles/utils/animations.css"
 import { flexCenter } from "~/styles/utils/flex.css"
 
@@ -37,7 +37,8 @@ export const commandIcon = style({
 	borderRadius,
 	cursor: "pointer",
 	":hover": {
-		backgroundColor: color.backgroundLighterer,
+		backgroundColor: color.font.primary,
+		color: color.background,
 		transform: "scale(1.3) rotate(90deg)",
 	},
 	":active": {
@@ -71,11 +72,10 @@ export const commandPaletteInput = style({
 	color: color.font.primary,
 	fontSize: "1.25em",
 	fontFamily: font.mono,
-	":focus": {
-		backgroundColor: color.backgroundLighterer,
-	},
+	":focus": {},
 	":hover": {
-		backgroundColor: color.backgroundLighterer,
+		backgroundColor: color.font.primary,
+		color: color.background,
 		transform: "scale(1.05)",
 	},
 })
@@ -91,7 +91,8 @@ export const commandClass = style({
 	alignItems: "flex-end",
 
 	":hover": {
-		backgroundColor: color.backgroundLighterer,
+		backgroundColor: color.font.primary,
+		color: color.background,
 		transform: "scale(1.1)",
 	},
 })
@@ -109,6 +110,8 @@ globalStyle(`${commandClass}:hover ${commandClassIcon}`, {
 export const commandEntering = style({
 	filter: "brightness(1.5)",
 	transform: "scale(1.05)",
+	backgroundColor: color.font.primary,
+	color: color.background,
 })
 
 export const shiningRect1 = style({

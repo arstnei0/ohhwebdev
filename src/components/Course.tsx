@@ -1,6 +1,13 @@
 import { Component, Show, createEffect, createMemo, onMount } from "solid-js"
 import { Dynamic, Portal } from "solid-js/web"
-import { course, nextPage, pageClass, previousPage } from "./Course.css"
+import {
+	bgImg,
+	course,
+	movePageWrapper,
+	nextPage,
+	pageClass,
+	previousPage,
+} from "./Course.css"
 import { createStore, Store } from "solid-js/store"
 import Button, { PointButton } from "./ui/Button"
 import { toast } from "~/lib/toast"
@@ -74,38 +81,43 @@ export const Course: Component<{}> = (props) => {
 	return (
 		<div class={course}>
 			<Progress />
-			<div class={pageClass}>
+			<main class={pageClass}>
 				{p()}
 				<Show when={hasNextPhase() && !phase().pages[pageId() + 1]}>
 					<PointButton onClick={goToNextPhase}>
 						Next Phase
 					</PointButton>
 				</Show>
-			</div>
+			</main>
+			<Show when={page().img}>
+				<img src={page().img} class={bgImg} />
+			</Show>
 			<CommandPalette
 				show={commandPalette()}
 				onHide={() => commandPalette(false)}
 			></CommandPalette>
 			<Portal mount={document.body}>
-				<div
-					class={previousPage}
-					classList={{
-						locked: !hasPreviousPage(),
-					}}
-					onClick={goToPreviousPage}
-				>
-					{/* prettier-ignore */}
-					<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24"><path fill="currentColor" d="M14.71 15.88L10.83 12l3.88-3.88a.996.996 0 1 0-1.41-1.41L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0c.38-.39.39-1.03 0-1.42z"></path></svg>
-				</div>
-				<div
-					class={nextPage}
-					classList={{
-						locked: !hasNextPage(),
-					}}
-					onClick={goToNextPage}
-				>
-					{/* prettier-ignore */}
-					<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12L9.29 8.12a.996.996 0 1 1 1.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3a.996.996 0 0 1-1.41 0c-.38-.39-.39-1.03 0-1.42z"></path></svg>
+				<div class={movePageWrapper}>
+					<div
+						class={previousPage}
+						classList={{
+							locked: !hasPreviousPage(),
+						}}
+						onClick={goToPreviousPage}
+					>
+						{/* prettier-ignore */}
+						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="M14.71 15.88L10.83 12l3.88-3.88a.996.996 0 1 0-1.41-1.41L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0c.38-.39.39-1.03 0-1.42z"></path></svg>
+					</div>
+					<div
+						class={nextPage}
+						classList={{
+							locked: !hasNextPage(),
+						}}
+						onClick={goToNextPage}
+					>
+						{/* prettier-ignore */}
+						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12L9.29 8.12a.996.996 0 1 1 1.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3a.996.996 0 0 1-1.41 0c-.38-.39-.39-1.03 0-1.42z"></path></svg>
+					</div>
 				</div>
 			</Portal>
 		</div>

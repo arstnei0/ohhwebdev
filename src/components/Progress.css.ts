@@ -3,7 +3,7 @@ import { color } from "~/styles/theme/color.css"
 import { scaleOnClick } from "~/styles/theme/effects.css"
 import { font } from "~/styles/theme/font.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
-import { transitionFn } from "~/styles/theme/transition"
+import { transitionFn } from "~/styles/theme/transition.css"
 
 export const progressWrapper = style({
 	position: "fixed",
@@ -50,7 +50,8 @@ export const chapterClass = style({
 globalStyle(`${chapterClass}.hovering`, {
 	transform: "scale(1.1)",
 	opacity: 1,
-	backgroundColor: color.backgroundLighter,
+	backgroundColor: color.font.primary,
+	color: color.background,
 })
 
 export const chaptersClass = style({
@@ -59,6 +60,7 @@ export const chaptersClass = style({
 	padding: "0px 14px",
 	borderRadius,
 	cursor: "auto",
+	color: color.font.primary,
 })
 
 export const chapterItem = style({
@@ -71,7 +73,8 @@ export const chapterItem = style({
 	backgroundColor: color.backgroundLighter,
 	transform: "scale(1)",
 	":hover": {
-		backgroundColor: color.backgroundLighterer,
+		backgroundColor: color.font.primary,
+		color: color.background,
 		transform: "scale(1.1)",
 	},
 })

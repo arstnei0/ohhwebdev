@@ -8,7 +8,7 @@ import {
 import { color } from "~/styles/theme/color.css"
 import { scaleOnClick } from "~/styles/theme/effects.css"
 import { font } from "~/styles/theme/font.css"
-import { transition, transitionFn } from "~/styles/theme/transition"
+import { transition, transitionFn } from "~/styles/theme/transition.css"
 import { fadeIn, fadeOut } from "~/styles/utils/animations.css"
 
 export const course = style({
@@ -29,6 +29,7 @@ export const pageClass = style({
 	width: "80%",
 	height: "85vh",
 	overflowY: "scroll",
+	overflowX: "clip",
 })
 
 export const fadeOutClass = style({
@@ -41,27 +42,30 @@ export const fadeInClass = style({
 const scaleIn = keyframes({
 	"0%": {
 		transform: "scale(3)",
-		marginRight: "100px",
 	},
 	"100%": {
 		transform: "scale(1)",
-		marginRight: "0px",
 	},
 })
 
+export const movePageWrapper = style({})
+
 const movePage = {
-	position: "absolute",
-	top: 0,
+	zIndex: 10,
+	position: "fixed",
+	top: "calc(50% - 50px)",
 	cursor: "pointer",
-	height: "100vh",
-	width: "80px",
+	height: "100px",
+	width: "60px",
 	transition,
-	backgroundColor: color.background,
+	backgroundColor: `${color.backgroundLight}AA`,
 	":hover": {
-		backgroundColor: color.backgroundLight,
+		backgroundColor: color.font.primary,
+		color: color.background,
+		transform: "scale(1.1)",
 	},
 	":active": {
-		backgroundColor: color.backgroundLighter,
+		filter: "brightness(.7)",
 		...scaleOnClick(1.3)[":active"],
 	},
 	display: "flex",
@@ -73,14 +77,24 @@ const movePage = {
 export const previousPage = style({
 	...movePage,
 	left: 0,
-	borderRadius: "0% 100% 100% 0%",
+	borderRadius: "0% 100px 100px 0%",
 })
 export const nextPage = style({
 	...movePage,
 	right: 0,
-	borderRadius: "100% 0% 0% 100%",
+	borderRadius: "100px 0% 0% 100px",
 })
 
 globalStyle(`:is(.${previousPage}, .${nextPage}).locked`, {
 	display: "none",
+})
+
+export const bgImg = style({
+	width: "100vw",
+	height: "100vh",
+	position: "absolute",
+	top: 0,
+	left: 0,
+	zIndex: -100,
+	opacity: 0.25,
 })

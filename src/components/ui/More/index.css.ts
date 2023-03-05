@@ -1,7 +1,7 @@
 import { globalStyle, keyframes, style } from "@vanilla-extract/css"
 import { color } from "~/styles/theme/color.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
-import { transition, transitionFn } from "~/styles/theme/transition"
+import { transition, transitionFn } from "~/styles/theme/transition.css"
 import { fadeIn } from "~/styles/utils/animations.css"
 import { flexCenter } from "~/styles/utils/flex.css"
 
@@ -43,10 +43,11 @@ globalStyle(`${moreButton}:hover::before`, {
 export const moreContent = style({
 	position: "absolute",
 	margin: "0px 5px",
-	left: "-9vw",
+	left: "-19vw",
 	padding: ".5em 1em",
 	borderRadius,
-	width: "20vw",
+	width: "40vw",
+	zIndex: 200,
 	backgroundColor: color.backgroundLight,
 	display: "none",
 	":hover": {
@@ -54,7 +55,10 @@ export const moreContent = style({
 	},
 })
 
-globalStyle(`${moreWrapper}:hover ${moreContent}, ${moreContent}:hover`, {
-	display: "block",
-	animation: `.5s ${transitionFn} 0s ${fadeIn}`,
-})
+globalStyle(
+	`:is(${moreWrapper}:hover, ${moreWrapper}:has(*:focus)) ${moreContent}, ${moreContent}:hover`,
+	{
+		display: "block",
+		animation: `.5s ${transitionFn} 0s ${fadeIn}`,
+	}
+)
