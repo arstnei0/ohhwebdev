@@ -8,27 +8,22 @@ const codeDir = import.meta.env.DEV
 	? path.join(import.meta.url.slice(5), "../../../code")
 	: path.join(import.meta.url.slice(5), "../../../../src/code")
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	const files = await glob(path.join(codeDir, "**/*"))
-	const res = files.map((filepath) => ({
-		params: {
-			id: (($) => $.slice($.lastIndexOf("code") + 1))(
-				filepath.split(path.sep)
-			).join("/"),
-		},
-	}))
-	return res
-}
+const allowedExtensions = ["html", "svelte", "ts", "tsx", "js", "jsx", "json", "astro"] as const
+export const getStaticPaths: GetStaticPaths = async () =>
+	(await glob(path.join(codeDir, "**/*")))
+		.map(($) => (($) => $.slice($.lastIndexOf("code") + 1))($.split(path.sep)).join("/"))
+		.map(($) => (($) => (allowedExtensions.some((ext) => $.endsWith(ext)) ? $ : null))($))
+		.filter(Boolean)
+		.map(($) => ({ params: { id: $ as string } }))
 
 const highlighter = await shiki.getHighlighter({
 	theme: "dracula",
-	langs: ["js", "ts", "jsx", "tsx", "astro", "svelte", "html"],
+	// @ts-ignore
+	langs: allowedExtensions,
 })
 
 export const get: APIRoute = async ({ params }) => {
-	const content = (
-		await readFile(path.join(codeDir, `${params.id as string}`))
-	).toString()
+	const content = (await readFile(path.join(codeDir, `${params.id as string}`))).toString()
 	const code = highlighter.codeToHtml(content, {
 		lang: (($) => $ && $[$.length - 1])(params.id?.split(".")),
 	})
