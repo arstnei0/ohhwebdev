@@ -5,14 +5,16 @@ import shiki from "shiki"
 import glob from "fast-glob"
 
 const codeDir = import.meta.env.DEV
-	? path.join(import.meta.url.slice(5), "../../../code")
-	: path.join(import.meta.url.slice(5), "../../../../src/code")
+	? path.join(import.meta.url.slice(5), "../../../../../code")
+	: path.join(import.meta.url.slice(5), "../../../../../code")
 
 const allowedExtensions = ["html", "svelte", "ts", "tsx", "js", "jsx", "json", "astro"] as const
+const allowedEndsWith = allowedExtensions.map(($) => `.${$}`)
 export const getStaticPaths: GetStaticPaths = async () =>
-	(await glob(path.join(codeDir, "**/*")))
+	(await glob(`**/*`, { cwd: codeDir }))
+		.filter(($) => !/(node_modules|dist)/gi.test($))
 		.map(($) => (($) => $.slice($.lastIndexOf("code") + 1))($.split(path.sep)).join("/"))
-		.map(($) => (($) => (allowedExtensions.some((ext) => $.endsWith(ext)) ? $ : null))($))
+		.map(($) => (($) => (allowedEndsWith.some((ext) => $.endsWith(ext)) ? $ : null))($))
 		.filter(Boolean)
 		.map(($) => ({ params: { id: $ as string } }))
 

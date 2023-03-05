@@ -1,0 +1,35 @@
+{
+	"name": "ohhwebdev",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"postinstall": "astro sync"
+	},
+	"dependencies": {
+		"@astrojs/solid-js": "^2.0.2",
+		"@astrojs/svelte": "^2.0.2",
+		"@solid-primitives/clipboard": "^1.5.2",
+		"@solid-primitives/event-listener": "^2.2.8",
+		"@solid-primitives/keyboard": "^1.0.9",
+		"@solid-primitives/storage": "^1.3.7",
+		"@total-typescript/ts-reset": "^0.3.7",
+		"@vanilla-extract/css": "^1.9.5",
+		"astro": "^2.0.17",
+		"astro-vanilla-extract": "^2.0.0",
+		"fast-glob": "^3.2.12",
+		"shiki": "^0.14.1",
+		"solid-js": "^1.6.11",
+		"solid-use": "^0.7.0",
+		"svelte": "^3.55.1",
+		"type-fest": "^3.6.1"
+	},
+	"devDependencies": {
+		"@types/node": "^18.14.6",
+		"typescript": "^4.9.5"
+	}
+}

@@ -347,8 +347,7 @@ export const chapter0 = {
 								What is the connection between these three languages?
 								<br /> HTML describes the <b>content</b> of the page, CSS adds{" "}
 								<b>styling</b> to the page (make the content look better), and JS
-								adds
-								<b>functionalities</b> to the page (e.g. buttons).
+								adds <b>functionalities</b> to the page (e.g. buttons).
 							</p>
 						</>
 					),
