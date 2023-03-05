@@ -1,7 +1,8 @@
-import { globalStyle, style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@macaron-css/core"
 import { color } from "~/styles/theme/color.css"
 import { scaleOnClick } from "~/styles/theme/effects.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
+import { transition } from "~/styles/theme/transition.css"
 
 export const checkbox = style({
 	padding: "8px",
@@ -10,7 +11,8 @@ export const checkbox = style({
 	display: "flex",
 	alignItems: "center",
 	":hover": {
-		backgroundColor: color.backgroundLight,
+		backgroundColor: color.font.primary,
+		color: color.background,
 	},
 	...scaleOnClick(),
 })
@@ -26,14 +28,30 @@ export const checkboxIcon = style({
 })
 
 globalStyle(`${checkbox}:hover ${checkboxIcon}`, {
-	backgroundColor: color.backgroundLighter,
+	backgroundColor: color.backgroundLight,
 })
 
 globalStyle(`${checkbox}:active ${checkboxIcon}`, {
-	transform: "scale(0.7)",
+	transform: "scale(0.8)",
 })
 
 globalStyle(`${checkbox}.checked ${checkboxIcon}`, {
-	backgroundColor: color.backgroundLightest,
-	transform: "scale(0.7)",
+	transform: "scale(0.8)",
+})
+
+globalStyle(`${checkbox} ${checkboxIcon}::before`, {
+	content: "",
+	width: "3em",
+	height: "3em",
+	position: "absolute",
+	background: color.primary,
+	borderRadius: "100%",
+	opacity: 0,
+	transition,
+})
+
+globalStyle(`${checkbox}.checked ${checkboxIcon}::before`, {
+	width: ".7em",
+	height: ".7em",
+	opacity: 1,
 })

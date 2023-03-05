@@ -1,4 +1,4 @@
-import type { JSX } from "solid-js/jsx-runtime"
+import type { JSX } from "solid-js"
 import { button, pointer, pointerWrapper } from "./index.css"
 
 const Button = (props: { children: JSX.Element; onClick?: () => void }) => {
@@ -9,10 +9,7 @@ const Button = (props: { children: JSX.Element; onClick?: () => void }) => {
 	)
 }
 
-export const PointButton = (props: {
-	children: JSX.Element
-	onClick?: () => void
-}) => {
+export const PointButton = (props: { children: JSX.Element; onClick?: () => void }) => {
 	return (
 		<Button onClick={props.onClick}>
 			{props.children}

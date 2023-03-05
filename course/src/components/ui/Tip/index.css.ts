@@ -1,4 +1,4 @@
-import { globalStyle, style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@macaron-css/core"
 import { box } from "../Box/index.css"
 
 export const tipSvg = style({})

@@ -19,6 +19,7 @@ import { createHover } from "~/lib/utils/hover"
 
 export default (props: { show: boolean; onHide: () => void }) => {
 	let inputEl = null as unknown as HTMLInputElement
+	let commandPaletteEl = null as unknown as HTMLDivElement
 	const currentFocus = atom(0)
 	const searchingCommand = atom("")
 	const [hovering, hoveringEvents] = createHover()
@@ -31,29 +32,23 @@ export default (props: { show: boolean; onHide: () => void }) => {
 	createEffect(() => {
 		commands(
 			searchingCommand() !== ""
-				? theCommands.filter((command) =>
-						new RegExp(`${searchingCommand()}`, "gi").test(
-							command.name
-						)
+				? theCommands.filter(command =>
+						new RegExp(`${searchingCommand()}`, "gi").test(command.name)
 				  )
 				: theCommands
 		)
 	})
 	onMount(() => {
-		createEventListener(window, "keyup", (e) => {
+		createEventListener(window, "keyup", e => {
 			if (props.show) {
 				if (e.key === "Enter") {
 					commands()[currentFocus()].action()
 					onHide()
 				} else if (e.key === "ArrowDown") {
-					currentFocus(
-						(($) => (commands()[$] ? $ : 0))(currentFocus() + 1)
-					)
+					currentFocus(($ => (commands()[$] ? $ : 0))(currentFocus() + 1))
 				} else if (e.key === "ArrowUp") {
 					currentFocus(
-						(($) => (commands()[$] ? $ : commands().length - 1))(
-							currentFocus() - 1
-						)
+						($ => (commands()[$] ? $ : commands().length - 1))(currentFocus() - 1)
 					)
 				} else if (e.key === "Escape") {
 					onHide()
@@ -66,10 +61,13 @@ export default (props: { show: boolean; onHide: () => void }) => {
 		<>
 			<Portal mount={document.body}>
 				<Show when={props.show}>
-					<div class={commandPaletteWrapper}>
+					<div
+						class={commandPaletteWrapper}
+						onClick={() => commandPaletteEl.matches(":hover") || onHide()}
+					>
 						<div class={shiningRect1}></div>
 						<div class={shiningRect2}></div>
-						<div class={commandPalette}>
+						<div class={commandPalette} ref={commandPaletteEl}>
 							<div style="display: flex; align-items: center; justify-content: center;">
 								<div
 									class={commandIcon}
@@ -92,10 +90,8 @@ export default (props: { show: boolean; onHide: () => void }) => {
 									value={searchingCommand()}
 									placeholder="Search command"
 									autofocus
-									onInput={(e) => {
-										searchingCommand(
-											(e.target as any).value
-										)
+									onInput={e => {
+										searchingCommand((e.target as any).value)
 									}}
 									ref={inputEl}
 								></input>
@@ -107,8 +103,7 @@ export default (props: { show: boolean; onHide: () => void }) => {
 											<div
 												class={commandClass}
 												classList={{
-													[commandEntering]:
-														i() === currentFocus(),
+													[commandEntering]: i() === currentFocus(),
 												}}
 												onClick={() => {
 													command.action()
@@ -121,12 +116,7 @@ export default (props: { show: boolean; onHide: () => void }) => {
 														{/* @ts-ignore */}
 														<command.icon></command.icon>
 													</Show>
-													<Show
-														when={
-															i() ===
-															currentFocus()
-														}
-													>
+													<Show when={i() === currentFocus()}>
 														{/* prettier-ignore */}
 														<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="m8.3 17.3l-4.6-4.6q-.15-.15-.213-.325T3.426 12q0-.2.063-.375T3.7 11.3l4.625-4.625q.275-.275.688-.262T9.7 6.7q.275.275.275.7t-.275.7L6.8 11H19V8q0-.425.288-.713T20 7q.425 0 .713.288T21 8v4q0 .425-.288.713T20 13H6.8l2.925 2.925q.275.275.263.688T9.7 17.3q-.275.275-.7.275t-.7-.275Z"></path></svg>
 													</Show>

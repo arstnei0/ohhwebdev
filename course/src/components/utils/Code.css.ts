@@ -1,5 +1,5 @@
-import { globalStyle, style } from "@vanilla-extract/css"
-import { color } from "~/styles/theme/color.css"
+import { globalStyle, style } from "@macaron-css/core"
+// import { color } from "~/styles/theme/color.css"
 import { font } from "~/styles/theme/font.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
 
@@ -10,7 +10,7 @@ globalStyle(`${codeClass} .shiki`, {
 	borderRadius,
 	fontFamily: font.mono,
 	overflowX: "scroll",
-	fontSize: ".8em",
+	fontSize: "1em",
 })
 
 globalStyle(`${codeClass}:not(:hover) .shiki`, {

@@ -11,15 +11,8 @@ export default (props: { id: string }) => {
 
 	return (
 		<>
-			<Show
-				when={code.status === "success"}
-				fallback={<p>Code Loading...</p>}
-			>
-				<div
-					ref={codeEl}
-					class={codeClass}
-					innerHTML={code.value.code}
-				></div>
+			<Show when={code.status === "success"} fallback={<p>Code Loading...</p>}>
+				<div ref={codeEl} class={codeClass} innerHTML={code.value.code}></div>
 			</Show>
 		</>
 	)

@@ -16,6 +16,7 @@ import SvelteKitInstallImg from "~/assets/img/chapter0/sveltekit-pnpm-install.gi
 import SvelteKitDevImg from "~/assets/img/chapter0/sveltekit-dev.gif"
 import CreateSvelteImg from "~/assets/img/chapter0/create-svelte.gif"
 import ChangePageSvelteImg from "~/assets/img/chapter0/changepagesvelte.gif"
+import InlineCode from "~/components/ui/InlineCode"
 
 export const chapter0 = {
 	n: 0,
@@ -45,7 +46,7 @@ export const chapter0 = {
 					},
 				},
 				{
-					content: (props) => {
+					content: props => {
 						return (
 							<>
 								<h1>What is Web Dev?</h1>
@@ -81,32 +82,32 @@ export const chapter0 = {
 									<Checkbox
 										value={store.laptop}
 										onToggle={() =>
-											setStore((s) => ({
+											setStore(s => ({
 												...s,
 												laptop: !s.laptop,
 											}))
 										}
-										label="A working laptop💻 (or just a computer🖥️)"
+										label="A working laptop 💻 (or just a computer 🖥️)"
 									/>
 									<Checkbox
 										value={store.brain}
 										onToggle={() =>
-											setStore((s) => ({
+											setStore(s => ({
 												...s,
 												brain: !s.brain,
 											}))
 										}
-										label="A working brain🧠"
+										label="A working brain 🧠"
 									/>
 									<Checkbox
 										value={store.perseverance}
 										onToggle={() =>
-											setStore((s) => ({
+											setStore(s => ({
 												...s,
 												perseverance: !s.perseverance,
 											}))
 										}
-										label="Perseverance💪"
+										label="Perseverance 💪"
 									/>
 								</div>
 							</>
@@ -231,8 +232,8 @@ export const chapter0 = {
 								<p>
 									VS Code has a large community and thousands of extensions
 									including different beautiful themes. Press{" "}
-									<code class="inline">Cmd + K</code> then{" "}
-									<code class="inline">Cmd + T</code> (Use Ctrl instead of Cmd on
+									<InlineCode>Cmd + K</InlineCode> then{" "}
+									<InlineCode>Cmd + T</InlineCode> (Use Ctrl instead of Cmd on
 									Windows).
 								</p>
 								<p>
@@ -259,7 +260,8 @@ export const chapter0 = {
 									install the latest version (19.7.0).
 								</p>
 								<p>
-									After you installed it, open a new terminal and type "node -v"
+									After you installed it, open a new terminal and type{" "}
+									<InlineCode>node -v</InlineCode>
 									and enter. You should see your Node.js' version then.
 								</p>
 								<h2>"How do I get a terminal?"</h2>
@@ -270,15 +272,17 @@ export const chapter0 = {
 								</p>
 								<img src={VSCodeTerminalImg}></img>
 								<p>
-									Then, run "corepack enable" in your terminal. This enables us to
-									use <a href="https://pnpm.io/">pnpm</a> (Performant Node.js
-									Package Manager). It's an alternative to{" "}
+									Then, run <InlineCode>corepack enable</InlineCode> in your
+									terminal. This enables us to use{" "}
+									<a href="https://pnpm.io/">pnpm</a> (Performant Node.js Package
+									Manager). It's an alternative to{" "}
 									<a href="https://npm.im/">npm</a> (Node Package Manager). It's
 									much faster and it can save a lot of disk space than npm with
 									the full functionality of npm.
 									<br />
-									After running "corepack enable", type "pnpm -v", you should see
-									your pnpm's version printed.
+									After running <InlineCode>corepack enable</InlineCode>, type{" "}
+									<InlineCode>pnpm -v</InlineCode>, you should see your pnpm's
+									version printed.
 								</p>
 							</>
 						)
@@ -352,6 +356,7 @@ export const chapter0 = {
 						</>
 					),
 				},
+
 				{
 					content: () => (
 						<>
@@ -366,37 +371,109 @@ export const chapter0 = {
 							<h2>Wait, where do I put the code?</h2>
 							<p>
 								We are gonna use a framework called{" "}
-								<a href="https://kit.svelte.dev/">SvelteKit</a>
-								to build our example website. It uses `.svelte` files with the
-								Svelte syntax, which you can just write HTML, CSS and JS in.
+								<a href="https://kit.svelte.dev/">SvelteKit</a> to build our example
+								website. It uses `.svelte` files with the Svelte syntax, which you
+								can just write HTML, CSS and JS in.
 							</p>
 							<p>
 								To create a new SvelteKit project, go to your terminal again, and go
-								to your home directory (use `cd {"<"}directory{">"}` to change your
-								current directory, on Mac, you can go to your home directory by
-								typing `cd ~`), type `
-								<code class="inline">pnpm create svelte chapter0</code>
-								`. Choose the option "Skeleton project" as the Svelte app template,
-								the option "Yes, using TypeScript syntax" for the "Add type checking
-								with TypeScript?". No additional options are needed for now. Then,
-								in VS Code, open that directory (it should be the `chapter0` at your
-								home directory). If you did it correctly, you should see a view like
+								to your home directory (use{" "}
+								<code class="inline">
+									cd {"<"}directory{">"}
+								</code>{" "}
+								to change your current directory, on Mac, you can go to your home
+								directory by typing <InlineCode>cd ~</InlineCode>), type
+								<InlineCode>pnpm create svelte chapter0</InlineCode>. Choose the
+								option "Skeleton project" as the Svelte app template, the option
+								"Yes, using TypeScript syntax" for the "Add type checking with
+								TypeScript?". No additional options are needed for now. Then, in VS
+								Code, open that directory (it should be the `chapter0` at your home
+								directory). If you did it correctly, you should see a view like
 								this:
 							</p>
 							<img src={CreateSvelteImg} />
 							<img src={SvelteKitProjectResultImg} />
 							<p>
-								Then, create a new terminal, run `pnpm install`. After the command
-								is run, you should see a new directory `node_modules` created.
+								Then, create a new terminal, run{" "}
+								<InlineCode>pnpm install</InlineCode>. After the command is run, you
+								should see a new directory `node_modules` created.
 							</p>
 							<img src={SvelteKitInstallImg} />
-							Open the `src/routes/+page.svelte`, change the content to the code
-							provided above. If VS Code asks you to install a plugin, just do what VS
-							Code asks you to do.
+							<p>
+								Open the <InlineCode>src/routes/+page.svelte</InlineCode>, change
+								the content to the code provided above. If VS Code asks you to
+								install a plugin, just do what VS Code asks you to do.
+							</p>
 							<img src={ChangePageSvelteImg} />
-							<p>Then, run `pnpm dev` and open the link shown in the terminal.</p>
+							<p>
+								Then, run <InlineCode>pnpm dev</InlineCode> and open the link shown
+								in the terminal.
+							</p>
 							<img src={SvelteKitDevImg} />
-							Great! You just created your first web page ever!
+							<p>Great! You just created your first web page ever!</p>
+						</>
+					),
+				},
+
+				{
+					content: () => (
+						<>
+							<h1>HTML Syntax</h1>
+							<p>
+								HTML consists of <b>elements</b>. Each element has one <b>tag</b> ,
+								multiple <b>attributes</b> and some optional children.
+								<br />
+								For example,{" "}
+								<InlineCode>{"<h1>This is a heading!</h1>"}</InlineCode> is just an
+								element. The tag of this element is <InlineCode>h1</InlineCode>,
+								while the child of the element is the text{" "}
+								<InlineCode>This is a heading!</InlineCode>. This h1 element doesn't
+								has any attributes on it.
+								<br />
+								Another example,{" "}
+								<InlineCode>{`<a href="https://ohhwebdev.pages.dev/">OhhWebDev</a>`}</InlineCode>{" "}
+								is an element with the tag <InlineCode>a</InlineCode>, an attribute{" "}
+								<InlineCode>href</InlineCode> set as{" "}
+								<InlineCode>"https://ohhwebdev.pages.dev/"</InlineCode> and a child
+								which is the text <InlineCode>OhhWebDev</InlineCode>.
+							</p>
+							<p>
+								To create an new element, start with the open angle bracket{" "}
+								<InlineCode>{"<"}</InlineCode>, leading the tag of the element and
+								the close angle bracket <InlineCode>{">"}</InlineCode>. Between the
+								tag and the close bracket, the attributes are defined. Then after
+								the close angle bracket, the children of the element begins. When
+								the close tag appears, the children ends and the element is closed.
+								The close tag is just <InlineCode>{"</tag-name>"}</InlineCode>. Note
+								that HTML is not case-sensitive, which means that{" "}
+								<InlineCode>tagName</InlineCode> is the same as{" "}
+								<InlineCode>tagname</InlineCode>. Instead of using{" "}
+								<InlineCode>camelCase</InlineCode> or
+								<InlineCode>snake_case</InlineCode>, HTML uses{" "}
+								<InlineCode>kebab-case</InlineCode>, that the words are separated
+								with minus signs (<InlineCode>-</InlineCode>).
+							</p>
+							<p>
+								<b>You hate text descriptions?</b> This explains everything:
+							</p>
+							<Code id="chapter0/src/element.svelte" />
+							<h2>"What are some common tags?</h2>
+							<p>
+								{
+									"<h1>, <h2>, <h3>, <h4>, <h5> and <h6> are used to present headings. The number in their name is just their heading level.\n"
+								}
+								<br />
+								{"<p> for paragraphs"}
+								<br />
+								{
+									"<a> for hyperlinks, use the href attribute to set the URL the link is to"
+								}
+								<br />
+								{
+									"<img> for images, use the src attribute to set the URL of the image"
+								}
+							</p>
+							<Code id="chapter0/src/more-tags.svelte"></Code>
 						</>
 					),
 				},

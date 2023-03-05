@@ -1,4 +1,4 @@
-import { globalStyle } from "@vanilla-extract/css"
+import { globalStyle } from "@macaron-css/core"
 import { color } from "./theme/color.css"
 import { font } from "./theme/font.css"
 import { borderRadius } from "./theme/sizes.css"
@@ -12,51 +12,46 @@ globalStyle("a", {
 	textDecoration: "none",
 	color: color.font.accent,
 	display: "inline-block",
+	padding: "4px .5em",
+	borderRadius,
+	backgroundColor: color.backgroundLighter,
 })
 
 globalStyle("a:hover", {
 	transform: "scale(1.2)",
+	backgroundColor: color.font.accent,
+	color: color.background,
 })
 
-globalStyle("a::before", {
-	content: "",
-	position: "absolute",
-	zIndex: -100,
-	borderRadius,
-	height: "120%",
-	top: "-10%",
-	width: "140%",
-	left: "-20%",
-	display: "none",
-	backgroundColor: `${color.backgroundLighter}99`,
-})
+// globalStyle("a::before", {
+// 	content: "",
+// 	position: "absolute",
+// 	zIndex: -100,
+// 	borderRadius,
+// 	height: "120%",
+// 	top: "-10%",
+// 	width: "140%",
+// 	left: "-20%",
+// 	display: "none",
+// 	backgroundColor: `${color.backgroundLighter}99`,
+// })
 
-globalStyle("a:hover::before", {
-	display: "block",
-})
+// globalStyle("a:hover::before", {
+// 	display: "block",
+// })
 
 globalStyle(`code.inline`, {
 	display: "inline-block",
-	position: "relative",
+	// position: "relative",
 	fontFamily: font.mono,
-})
-
-globalStyle("code.inline::before", {
-	content: "",
-	position: "absolute",
-	zIndex: -5,
-	borderRadius,
-	height: "140%",
-	top: "-20%",
-	width: "120%",
-	left: "-10%",
+	padding: "4px .6em",
 	backgroundColor: color.backgroundLighter,
-	transition,
+	borderRadius,
 })
-
-globalStyle("code.inline:hover::before", {
-	backgroundColor: color.backgroundLighterer,
-	transform: "scale(1.2)",
+globalStyle(`code.inline:hover`, {
+	backgroundColor: color.font.primary,
+	color: color.background,
+	transform: "scale(1.15)",
 })
 
 globalStyle("img", {

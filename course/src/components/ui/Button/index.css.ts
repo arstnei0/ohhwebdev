@@ -1,4 +1,4 @@
-import { globalStyle, style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@macaron-css/core"
 import { color } from "~/styles/theme/color.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
 import { transition } from "~/styles/theme/transition.css"
@@ -60,6 +60,10 @@ globalStyle(`${button} ${pointer}::before`, {
 	padding: "6px",
 	borderRadius: "2px",
 	transform: "rotate(-45deg)",
+})
+
+globalStyle(`${button}:hover ${pointer}`, {
+	transform: "scale(1.5)",
 })
 
 globalStyle(`${button}:hover ${pointer}::before`, {

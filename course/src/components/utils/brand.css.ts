@@ -1,4 +1,4 @@
-import { globalStyle, keyframes, style } from "@vanilla-extract/css"
+import { globalStyle, keyframes, style } from "@macaron-css/core"
 import { color } from "~/styles/theme/color.css"
 import { font } from "~/styles/theme/font.css"
 import { transitionFn } from "~/styles/theme/transition.css"

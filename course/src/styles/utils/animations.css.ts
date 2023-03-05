@@ -1,4 +1,4 @@
-import { keyframes } from "@vanilla-extract/css"
+import { keyframes } from "@macaron-css/core"
 
 export const fadeOut = keyframes({
 	"0%": {

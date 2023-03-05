@@ -1,4 +1,4 @@
-import { globalStyle, keyframes, style } from "@vanilla-extract/css"
+import { globalStyle, keyframes, style } from "@macaron-css/core"
 import { color } from "~/styles/theme/color.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
 import { transition, transitionFn } from "~/styles/theme/transition.css"
@@ -12,6 +12,9 @@ export const moreWrapper = style({
 export const moreButton = style({
 	...flexCenter,
 	cursor: "pointer",
+	":hover": {
+		color: color.primary,
+	},
 })
 const hueRotation = keyframes({
 	"0%": {
@@ -35,10 +38,10 @@ globalStyle(`${moreButton}::before`, {
 	zIndex: -50,
 	backgroundColor: color.primary,
 	transition,
-	animation: `7s linear 0s ${hueRotation} infinite`,
+	// animation: `7s linear 0s ${hueRotation} infinite`,
 })
 globalStyle(`${moreButton}:hover::before`, {
-	backgroundColor: color.backgroundLighterer,
+	backgroundColor: color.font.primary,
 })
 export const moreContent = style({
 	position: "absolute",

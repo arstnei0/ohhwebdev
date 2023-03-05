@@ -1,4 +1,4 @@
-import { globalStyle, style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@macaron-css/core"
 import { color } from "~/styles/theme/color.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
 import { transitionFn } from "~/styles/theme/transition.css"
@@ -11,7 +11,8 @@ export const box = style({
 	padding: ".4em 1.4em",
 	":hover": {
 		transform: "scale(1.05)",
-		filter: "brightness(1.3)",
+		backgroundColor: color.font.primary,
+		color: color.background,
 	},
 	overflow: "hidden",
 	// HACK: Work without `position: absolute;`
