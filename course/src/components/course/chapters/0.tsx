@@ -457,23 +457,28 @@ export const chapter0 = {
 								<b>You hate text descriptions?</b> This explains everything:
 							</p>
 							<Code id="chapter0/src/element.svelte" />
-							<h2>"What are some common tags?</h2>
+							<h2>"What are some common tags?"</h2>
 							<p>
-								{
-									"<h1>, <h2>, <h3>, <h4>, <h5> and <h6> are used to present headings. The number in their name is just their heading level.\n"
-								}
+								<InlineCode>{"<h1>"}</InlineCode>, <InlineCode>{"<h2>"}</InlineCode>
+								, <InlineCode>{"<h3>"}</InlineCode>,{" "}
+								<InlineCode>{"<h4>"}</InlineCode>, <InlineCode>{"<h5>"}</InlineCode>{" "}
+								and <InlineCode>{"<h6>"}</InlineCode> are used to present headings.
+								The number in their name is just their heading level.
 								<br />
-								{"<p> for paragraphs"}
+								<InlineCode>{"<p>"}</InlineCode> is for paragraphs.
 								<br />
-								{
-									"<a> for hyperlinks, use the href attribute to set the URL the link is to"
-								}
+								<InlineCode>{"<a>"}</InlineCode> is for hyperlinks, use the href
+								attribute to set the URL the link is to.
 								<br />
-								{
-									"<img> for images, use the src attribute to set the URL of the image"
-								}
+								<InlineCode>{"<img>"}</InlineCode> for images, use the src attribute
+								to set the URL of the image.
+								<br />
+								<InlineCode>{"<button>"}</InlineCode> for button.
+								<InlineCode>{"<b>"}</InlineCode> for bold text.
+								<InlineCode>{"<i>"}</InlineCode> for italic text.
 							</p>
 							<Code id="chapter0/src/more-tags.svelte"></Code>
+							<p>You don't have to memorize them, since I don't either.</p>
 						</>
 					),
 				},

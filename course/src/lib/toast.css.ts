@@ -1,4 +1,4 @@
-import { keyframes, style } from "@macaron-css/core"
+import { keyframes, style } from "@vanilla-extract/css"
 import { color } from "~/styles/theme/color.css"
 import { scaleOnClick } from "~/styles/theme/effects.css"
 import { font } from "~/styles/theme/font.css"

@@ -1,4 +1,4 @@
-import { globalStyle, style } from "@macaron-css/core"
+import { globalStyle, style } from "@vanilla-extract/css"
 import { color } from "~/styles/theme/color.css"
 import { scaleOnClick } from "~/styles/theme/effects.css"
 import { borderRadius } from "~/styles/theme/sizes.css"

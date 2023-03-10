@@ -1,4 +1,4 @@
-import { globalStyle, keyframes, style } from "@macaron-css/core"
+import { globalStyle, keyframes, style } from "@vanilla-extract/css"
 import { color } from "~/styles/theme/color.css"
 import { borderRadius } from "~/styles/theme/sizes.css"
 import { transition, transitionFn } from "~/styles/theme/transition.css"
@@ -54,7 +54,8 @@ export const moreContent = style({
 	backgroundColor: color.backgroundLight,
 	display: "none",
 	":hover": {
-		backgroundColor: color.backgroundLighter,
+		backgroundColor: color.font.primary,
+		color: color.background,
 	},
 })
 

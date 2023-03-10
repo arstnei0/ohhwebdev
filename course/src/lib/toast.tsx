@@ -40,5 +40,5 @@ export const toast = (content: JSX.Element) => {
 	if (clearTimeout$) clearTimeout(clearTimeout$)
 	clearTimeout$ = setTimeout(() => {
 		setContent(null)
-	}, 3000)
+	}, 3000) as any
 }
